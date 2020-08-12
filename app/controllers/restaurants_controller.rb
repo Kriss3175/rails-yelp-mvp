@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit]
 
   def index
     @restaurants = Restaurant.all
@@ -21,15 +21,15 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  def update
-    @restaurant.update(restaurant_params)
-    redirect_to restaurant_path(@restaurant)
-  end
+  # def update
+  #   @restaurant.update(restaurant_params)
+  #   redirect_to restaurant_path(@restaurant)
+  # end
 
-  def destroy
-    @restaurant.destroy
-    redirect_to restaurants_path
-  end
+  # def destroy
+  #   @restaurant.destroy
+  #   redirect_to restaurants_path
+  # end
 
 private
   def restaurant_params
@@ -37,6 +37,6 @@ private
   end
 
   def set_restaurant
-    @task = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 end
